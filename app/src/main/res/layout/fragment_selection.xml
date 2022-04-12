@@ -68,8 +68,9 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/previous"
-        app:layout_constraintTop_toBottomOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="parent4"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
