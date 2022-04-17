@@ -5,28 +5,27 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.lovetest.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var navController : NavController
+    // 전역 변수로 바인딩 객체 선언
+    private var mBinding : ActivityMainBinding? = null
+    // 매번 null체크를 할 필요 없이 편의성을 위해 바인딩 변수 재 선언
+    private val binding get() = mBinding!!
+
+    lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        // navigation과 activity 연결
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController = navHostFragment.navController
+        mBinding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val
-        
-        // 바인딩 초기화
-        val binding = ActivityMainBinding.inflate(layoutInflater);
-3       // 레이아웃(root뷰) 표시
-        setContentView(binding.root);
-        // 뷰바인딩으로 버튼 접근
+        navController = findNavController(R.id.nav_host_fragment)
+
     }
+
 }
